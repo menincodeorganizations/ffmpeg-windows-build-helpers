@@ -2377,6 +2377,8 @@ build_ffmpeg() {
     config_options+=" --enable-libvpx"
     #config_options+=" --enable-libsvtvp9" #not currently working but compiles if configured
 
+    config_options+=" --enable-filter=gltransition --extra-libs='-lGLEW -lglfw'"
+
     if [[ $compiler_flavors != "native" ]]; then
       config_options+=" --enable-nvenc --enable-nvdec" # don't work OS X
     fi
