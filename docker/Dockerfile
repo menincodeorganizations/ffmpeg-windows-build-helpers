@@ -37,9 +37,10 @@ RUN apt-get update && \
     wget \
     ed
 
-COPY . /dev/null
+
 # copy the entire git dir into the new docker container
 COPY . ./ffmpeg-windows-build-helpers
+COPY ./cross_compile_ffmpeg.sh ./ffmpeg-windows-build-helpers
 
 WORKDIR /ffmpeg-windows-build-helpers
 ENTRYPOINT [ "bash", "./docker/docker-entry.sh" ]
