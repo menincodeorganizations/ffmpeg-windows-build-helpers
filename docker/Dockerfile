@@ -37,6 +37,7 @@ RUN apt-get update && \
     wget \
     ed
 
+COPY . /dev/null
 # copy the entire git dir into the new docker container
 COPY . ./ffmpeg-windows-build-helpers
 

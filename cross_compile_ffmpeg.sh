@@ -86,7 +86,7 @@ check_missing_packages () {
     echo 'Install the missing packages before running this script.'
     determine_distro
 
-    apt_pkgs='subversion ragel curl texinfo g++ bison flex cvs yasm automake libtool autoconf gcc cmake git make pkg-config zlib1g-dev unzip pax nasm gperf autogen bzip2 autoconf-archive p7zip-full meson clang'
+    apt_pkgs='subversion ragel curl texinfo g++ bison flex cvs yasm automake libtool autoconf gcc cmake git make pkg-config zlib1g-dev unzip pax nasm gperf autogen bzip2 autoconf-archive p7zip-full meson clang xvfb libglew-dev glew-utils'
 
     [[ $DISTRO == "debian" ]] && apt_pkgs="$apt_pkgs libtool-bin ed"
     case "$DISTRO" in
@@ -2377,7 +2377,7 @@ build_ffmpeg() {
     config_options+=" --enable-libvpx"
     #config_options+=" --enable-libsvtvp9" #not currently working but compiles if configured
 
-    config_options+=" --enable-filter=gltransition --extra-libs='-lGLEW -lglfw'"
+    config_options+=" --enable-filter=gltransition --extra-libs='-lGLEW -lglfw3'"
 
     if [[ $compiler_flavors != "native" ]]; then
       config_options+=" --enable-nvenc --enable-nvdec" # don't work OS X
